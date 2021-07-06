@@ -1,4 +1,3 @@
-
 const tictactoeBx = document.querySelectorAll('.tictactoe-bx');
 const playerXScoreboard = document.querySelector('.player-X-score');
 const playerOScoreboard = document.querySelector('.player-O-score');
@@ -111,13 +110,8 @@ const addPlayerScore = (() =>
     }
 })();
 
-function resetGame()
-{    
-    tictactoeBx.forEach(bx=>
-    {
-        bx.textContent = "";
-    })
-}
+const resetGame = ()=> tictactoeBx.forEach(bx=> bx.textContent = "");
+
 
    
 
