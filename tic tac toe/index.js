@@ -5,27 +5,24 @@ const playerNotif = document.querySelector('.player-notif');
 
 tictactoeBx.forEach(bx => bx.addEventListener('click',getValue));
 
-function playerTurns(currentRound)
+const playerTurns = (()=>
 {
+    let currentRound = 0;
     let playerTurn = "";
-    currentRound % 2 === 0 ? playerTurn = "Player X" : playerTurn = "Player O";
-    return playerTurn;
-}
 
-const currentRounds = (()=>
-{
-    let round = 0;
-    return ()=> round++;
+    return ()=>
+    {
+        currentRound % 2 === 0 ? playerTurn = "Player X" : playerTurn = "Player O";
+        currentRound++;
+        return playerTurn;
+    }
 })();
-
 
 function getValue(e)
 {
     if(e.target.textContent !== "") return;
 
-    let currentRound = currentRounds();
-
-    let playerTurn = playerTurns(currentRound);
+    let playerTurn = playerTurns();
     
     if(playerTurn === "Player X")
     {

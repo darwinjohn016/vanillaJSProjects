@@ -40,6 +40,7 @@ const checkIfMatch = (() =>
 {
     let firstCard = "";
     let secondCard = "";
+    let count = 0;
 
     return (e) =>
     {
@@ -54,12 +55,13 @@ const checkIfMatch = (() =>
             firstCard = "";
             secondCard = "";
 
-            let count = counter();
-            if(count === 4)
+            count++;
+            if(count === 5)
             {
                 alert("Your Time: " + minutes.textContent+ ":"+seconds.textContent + ":" + milli.textContent);
                 stopTimer();
                 resetGame();
+                count = 0;
             }
         }
         else if(firstCard.dataset.value != secondCard.dataset.value)
@@ -75,11 +77,11 @@ const checkIfMatch = (() =>
     }
 })();
 
-const counter = (()=>
-{
-    let count = 0;
-    return ()=> count++;
-})();
+// const counter = (()=>
+// {
+//     let count = 0;
+//     return ()=> count++;
+// })();
 
 const timer = (()=>
 {
@@ -133,10 +135,7 @@ function resetGame()
     seconds.textContent = "00";
     milli.textContent = "00";
     shuffleCards(cards);
-    cards.forEach(card =>
-    {
-        card.style.transform = `perspective(${4000}px) rotateY(${180}deg)`;
-    })
+    cards.forEach(card => card.style.transform = `perspective(${4000}px) rotateY(${180}deg)`);
 }
 
 

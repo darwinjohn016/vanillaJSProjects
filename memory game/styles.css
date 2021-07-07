@@ -14,7 +14,7 @@ body::before
     width: 100%;
     text-align: center;
     transform: translate(-50%,-50%);
-    font-size: clamp(5rem,12vw,10rem);
+    font-size: clamp(4rem,12vw,10rem);
     font-weight: bold;
     z-index: -1;
     opacity: 0.3;
@@ -87,8 +87,28 @@ body::before
     inset -1px -1px 15px rgba(255,255,255,0.05);
 }
 
+@media(max-width:850px)
+{
+    .memory-game
+    {
+        grid-template-columns: repeat(5,110px);
+        grid-auto-rows: 150px;
+    }    
+}
 
+@media(max-width:640px)
+{
+    .memory-game
+    {
+        grid-template-columns: repeat(5,80px);
+        grid-auto-rows: 100px;
+    }    
+}
 
-
-
-
+@media(max-width:480px)
+{
+    .memory-game
+    {
+        grid-template-columns: repeat(3,85px);
+    }    
+}

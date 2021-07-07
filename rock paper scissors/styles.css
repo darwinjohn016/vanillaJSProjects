@@ -1,0 +1,124 @@
+body
+{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #5ff5fa;
+    position: relative;
+}
+
+body::before
+{
+    content: 'Rock Paper Scissors';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    font-size: clamp(5rem,9vw,10rem);
+    font-weight: bold;
+    z-index: -1;
+    opacity: 0.1;
+    color: #00424A;
+}
+
+.scoreboard
+{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    color: #00424A;
+}
+
+.scoreboard > div
+{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.winner-notif
+{
+    text-align: center;
+    color: #00424A;
+}
+
+.gaming-board
+{
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: 250px;
+}
+
+.player-hand,
+.computer-hand
+{
+    font-size: clamp(5rem,15vw,10rem);
+    display: grid;
+    place-content: center;
+}
+
+.player-hand i,
+.computer-hand i
+{
+    display: none;
+    color: #A73A00;
+}
+
+.player-hand i:nth-child(3)
+{
+    transform: scaleX(-1);
+}
+
+.buttons
+{
+    display: flex;
+    gap: 2rem;
+}
+
+.buttons button
+{
+    background: transparent;
+    font-size: clamp(3rem,5vw,5rem);
+    color: #A73A00;
+    transition: all 0.3s linear;
+    padding: 0;
+}
+
+.buttons button:hover
+{
+    transform: translateY(-5px);
+}
+
+@media(max-width:768px)
+{
+    .scoreboard
+    {
+        width: 500px;
+    }
+    .gaming-board
+    {
+        width: 500px;
+    }
+}
+
+@media(max-width:500px)
+{
+    .scoreboard
+    {
+        width: 300px;
+    }
+    .gaming-board
+    {
+        width: 300px;
+        grid-auto-rows: 200px;
+    }
+}
+
+
+
+
+
